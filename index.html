@@ -145,7 +145,7 @@
             <div class="text-center mb-20">
                 <h2 class="text-4xl font-black text-white mb-4">參與學生名錄</h2>
                 <div class="h-1.5 w-20 bg-indigo-600 mx-auto rounded-full"></div>
-                <p class="mt-6 text-slate-400 font-medium">本年度計畫共計 22 位管院菁英成員參與</p>
+                <p class="mt-6 text-slate-400 font-medium">本年度計畫共計 23 位管院菁英成員參與</p>
             </div>
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4" id="students-grid">
                 <!-- JS 生成 -->
@@ -193,14 +193,15 @@
     </footer>
 
     <script>
-        // 資料設定 - 更新何正斌老師連結與種子師資
+        // 資料設定
         const seedTeachers = [
             { name: "何正斌", link: "https://d11aas.github.io/ho/" },
             { name: "徐彬偉" }
         ];
 
         const students = [
-            { name: "周倍君", link: "beiweb.html" },
+            { name: "周倍君", link: "https://d11aas.github.io/web123/" },
+            { name: "王緯翔", link: "https://wweixiang485-a11y.github.io/weixiangwang1010.github.io/" },
             { name: "魏俊溢" }, { name: "黃子芸" }, { name: "沈宛瑩" }, { name: "陳嘉億" }, { name: "陳楷文" }, 
             { name: "林宥任" }, { name: "沈群鈞" }, { name: "李依庭" }, { name: "黃宜璇" }, { name: "陸翊寧" }, 
             { name: "蔡文瑜" }, { name: "鄭卉庭" }, { name: "林黃羿" }, { name: "于驊麟" }, { name: "郭之駿" }, 
@@ -252,7 +253,10 @@
         const studentGrid = document.getElementById('students-grid');
         students.forEach(student => {
             const wrapper = student.link ? document.createElement('a') : document.createElement('div');
-            if (student.link) wrapper.href = student.link;
+            if (student.link) {
+                wrapper.href = student.link;
+                wrapper.target = "_blank";
+            }
             
             wrapper.className = `p-5 rounded-2xl text-center transition-all duration-300 border ${
                 student.link 
