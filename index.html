@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 智慧管院 - 跨域產學對接平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #0f172a;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.15), transparent),
+                        radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.1), transparent);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="text-slate-200 selection:bg-indigo-500/30">
+
+    <!-- 背景裝飾 -->
+    <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+        <div class="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-indigo-600/10 blur-[120px] rounded-full"></div>
+        <div class="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-600/10 blur-[120px] rounded-full"></div>
+    </div>
+
+    <!-- 導覽列 -->
+    <nav class="sticky top-0 z-50 bg-slate-950/60 backdrop-blur-xl border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center gap-3">
+                    <div class="p-2 bg-indigo-600/20 rounded-xl border border-indigo-500/30">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-400"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2v-5"/></svg>
+                    </div>
+                    <span class="text-2xl font-black tracking-tight text-white">
+                        AI <span class="text-indigo-400">智慧管院</span>
+                    </span>
+                </div>
+                <div class="hidden md:flex space-x-10 font-medium">
+                    <a href="#lecturers" class="text-slate-400 hover:text-white transition-all">師資團隊</a>
+                    <a href="#students" class="text-slate-400 hover:text-white transition-all">成員名錄</a>
+                    <a href="#courses" class="text-slate-400 hover:text-white transition-all">課程安排</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主視覺區塊 -->
+    <section class="relative pt-24 pb-32 hero-gradient overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wider text-indigo-400 uppercase bg-indigo-500/10 border border-indigo-500/20 rounded-full">
+                Empowering Digital Transformation
+            </div>
+            <h1 class="text-5xl md:text-7xl font-black mb-8 leading-tight text-white">
+                AI 驅動管理創新 <br>
+                <span class="text-gradient">跨域產學對接平台</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed mb-12">
+                結合屏科大菁英教師、業界專家與卓越學子，<br class="hidden md:block">
+                打造產官學研深度融合的數位創新基地。
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#courses" class="px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-2xl transition-all shadow-lg shadow-indigo-600/20">
+                    探索核心課程
+                </a>
+                <a href="#lecturers" class="px-8 py-4 bg-white/5 hover:bg-white/10 text-white font-bold rounded-2xl border border-white/10 transition-all">
+                    認識師資
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 講師區塊 -->
+    <section id="lecturers" class="py-24 max-w-7xl mx-auto px-6">
+        <div class="flex items-center gap-4 mb-16">
+            <h2 class="text-4xl font-black text-white">上課講師</h2>
+            <div class="h-px flex-1 bg-gradient-to-r from-indigo-500/50 to-transparent"></div>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
+            <!-- 吳相勳 -->
+            <div class="glass-card p-8 rounded-[2rem] hover:border-indigo-500/50 transition-all group relative overflow-hidden">
+                <div class="w-14 h-14 bg-indigo-600/20 rounded-2xl flex items-center justify-center text-3xl mb-6 border border-indigo-500/30">👨‍🏫</div>
+                <h3 class="text-xl font-bold text-white mb-1">吳相勳</h3>
+                <p class="text-indigo-400 font-bold mb-3 uppercase tracking-wider text-xs">核心授課講師</p>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">負責 AI 應用實務系列課程，引領學生將技術轉化為商業價值。</p>
+                <a href="https://537sonic.github.io/SONIC/" target="_blank" class="inline-flex items-center gap-2 text-white text-sm font-bold group-hover:text-indigo-400 transition-colors">
+                    個人頁面 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                </a>
+            </div>
+            <!-- 蔡登茂 -->
+            <div class="glass-card p-8 rounded-[2rem] hover:border-blue-500/50 transition-all group relative overflow-hidden">
+                <div class="w-14 h-14 bg-blue-600/20 rounded-2xl flex items-center justify-center text-3xl mb-6 border border-blue-500/30">👨‍💼</div>
+                <h3 class="text-xl font-bold text-white mb-1">蔡登茂</h3>
+                <p class="text-blue-400 font-bold mb-3 uppercase tracking-wider text-xs">專業授課講師</p>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">產業數位轉型專家，擁有深厚的實戰經驗與學術背景。</p>
+                <a href="https://im.npust.edu.tw/teacher/%e8%94%a1%e7%99%bb%e8%8c%82/" target="_blank" class="inline-flex items-center gap-2 text-white text-sm font-bold group-hover:text-blue-400 transition-colors">
+                    個人頁面 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                </a>
+            </div>
+            <!-- 何正斌 -->
+            <div class="glass-card p-8 rounded-[2rem] hover:border-emerald-500/50 transition-all group relative overflow-hidden">
+                <div class="w-14 h-14 bg-emerald-600/20 rounded-2xl flex items-center justify-center text-3xl mb-6 border border-emerald-500/30">💻</div>
+                <h3 class="text-xl font-bold text-white mb-1">何正斌</h3>
+                <p class="text-emerald-400 font-bold mb-3 uppercase tracking-wider text-xs">專業授課講師</p>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">專精於 AI 時代下的行政系務資訊化與校務行政效能提升。</p>
+                <a href="https://d11aas.github.io/ho/" target="_blank" class="inline-flex items-center gap-2 text-white text-sm font-bold group-hover:text-emerald-400 transition-colors">
+                    個人頁面 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                </a>
+            </div>
+            <!-- 林堂烈 -->
+            <div class="glass-card p-8 rounded-[2rem] hover:border-purple-500/50 transition-all group relative overflow-hidden">
+                <div class="w-14 h-14 bg-purple-600/20 rounded-2xl flex items-center justify-center text-3xl mb-6 border border-purple-500/30">💡</div>
+                <h3 class="text-xl font-bold text-white mb-1">林堂烈</h3>
+                <p class="text-purple-400 font-bold mb-3 uppercase tracking-wider text-xs">專題講座</p>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">專注於 AI 教育與產學合作整合規劃，開拓師生跨域視野。</p>
+            </div>
+        </div>
+
+        <!-- 種子老師團隊 -->
+        <div class="mb-10 text-center">
+            <h3 class="text-xl font-bold text-slate-400 uppercase tracking-[0.2em] mb-12">種子老師團隊</h3>
+            <div class="glass-card rounded-[3rem] p-12 overflow-hidden relative max-w-2xl mx-auto">
+                <div class="grid grid-cols-2 gap-y-12 gap-x-6 justify-items-center" id="seed-teachers-grid">
+                    <!-- JS 生成 -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 學生名錄區塊 -->
+    <section id="students" class="py-24 bg-slate-950/40 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl font-black text-white mb-4">參與學生名錄</h2>
+                <div class="h-1.5 w-20 bg-indigo-600 mx-auto rounded-full"></div>
+                <p class="mt-6 text-slate-400 font-medium">本年度計畫共計 22 位管院菁英成員參與</p>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4" id="students-grid">
+                <!-- JS 生成 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 課程安排區塊 -->
+    <section id="courses" class="py-24 max-w-5xl mx-auto px-6">
+        <div class="flex flex-col items-center mb-16">
+            <h2 class="text-4xl font-black text-white mb-2">課程進度安排</h2>
+            <p class="text-indigo-400 font-medium">Course Timeline & Roadmap</p>
+        </div>
+
+        <div class="space-y-6" id="courses-timeline">
+            <!-- JS 生成 -->
+        </div>
+    </section>
+
+    <!-- 頁尾 -->
+    <footer class="bg-slate-950 text-slate-500 py-20 px-6 border-t border-white/5">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 items-center gap-12">
+            <div class="text-center md:text-left">
+                <div class="flex items-center justify-center md:justify-start gap-3 mb-6">
+                    <div class="w-10 h-10 bg-indigo-600/20 rounded-xl flex items-center justify-center border border-indigo-500/20">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-400"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2v-5"/></svg>
+                    </div>
+                    <span class="text-white text-2xl font-black">AI 智慧管院</span>
+                </div>
+                <p class="max-w-sm mx-auto md:mx-0 text-sm leading-relaxed mb-6">
+                    致力於將前沿 AI 技術轉化為管理競爭力，為未來的數位轉型奠定堅實基礎。
+                </p>
+            </div>
+            
+            <div class="flex flex-col items-center md:items-end gap-6">
+                <div class="text-sm text-center md:text-right space-y-1">
+                    <p class="text-slate-300 font-bold">國立屏東科技大學</p>
+                    <p>© 2026 AI 智慧管理學院版權所有</p>
+                </div>
+                <div class="flex gap-8 font-bold text-sm">
+                    <a href="#" class="hover:text-white transition-colors">隱私權政策</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 資料設定 - 更新何正斌老師連結與種子師資
+        const seedTeachers = [
+            { name: "何正斌", link: "https://d11aas.github.io/ho/" },
+            { name: "徐彬偉" }
+        ];
+
+        const students = [
+            { name: "周倍君", link: "beiweb.html" },
+            { name: "魏俊溢" }, { name: "黃子芸" }, { name: "沈宛瑩" }, { name: "陳嘉億" }, { name: "陳楷文" }, 
+            { name: "林宥任" }, { name: "沈群鈞" }, { name: "李依庭" }, { name: "黃宜璇" }, { name: "陸翊寧" }, 
+            { name: "蔡文瑜" }, { name: "鄭卉庭" }, { name: "林黃羿" }, { name: "于驊麟" }, { name: "郭之駿" }, 
+            { name: "李芷迎" }, { name: "黃建榮" }, { name: "陳品瑄" }, { name: "林采儀" }, { name: "胡家妍" }, 
+            { name: "林杰毅" }
+        ];
+
+        const courseData = [
+            { date: '10/01', teacher: '林堂烈老師', title: 'AI教育與產學合作整合規劃' },
+            { date: '11/05', teacher: '吳相勳老師', title: '打造個人化AI教學助理' },
+            { date: '11/14', teacher: '吳相勳老師', title: '生成式AI輔助課程與教案設計' },
+            { date: '11/19', teacher: '吳相勳老師', title: '善用NotebookLM 加速文獻探討與論文寫作' },
+            { date: '12/01', teacher: '蔡登茂講師', title: 'AI手把手入門教學' },
+            { date: '12/19', teacher: '何正斌講師', title: 'AI時代下的行政系務資訊化應用' },
+            { date: '01/09', teacher: '吳相勳講師', title: '「拉霸、黑盒子與教學研的黃金時代」' },
+            { date: '01/10-11', teacher: '郭穎蓉講師', title: 'AI 實戰行銷工坊' },
+            { date: '03/02', teacher: '吳相勳講師', title: '大洗牌：生成式AI的商業思考與實戰' }
+        ];
+
+        // 生成種子老師
+        const seedGrid = document.getElementById('seed-teachers-grid');
+        seedTeachers.forEach(teacher => {
+            const wrapper = teacher.link ? document.createElement('a') : document.createElement('div');
+            if (teacher.link) {
+                wrapper.href = teacher.link;
+                wrapper.target = "_blank";
+                wrapper.rel = "noopener noreferrer";
+            }
+            
+            wrapper.className = "flex flex-col items-center text-center space-y-3 group";
+            wrapper.innerHTML = `
+                <div class="w-20 h-20 rounded-2xl flex items-center justify-center font-bold text-xl border-2 transition-all shadow-inner ${
+                    teacher.link 
+                    ? 'bg-indigo-600/30 text-white border-indigo-500/50 group-hover:scale-110 group-hover:bg-indigo-600 group-hover:border-white shadow-indigo-500/20' 
+                    : 'bg-white/5 text-slate-400 border-white/10'
+                }">
+                    ${teacher.name[0]}
+                </div>
+                <div>
+                    <span class="block font-bold transition-colors ${teacher.link ? 'text-indigo-400 group-hover:text-white' : 'text-slate-400'}">
+                        ${teacher.name}
+                    </span>
+                </div>
+            `;
+            seedGrid.appendChild(wrapper);
+        });
+
+        // 生成學生名錄
+        const studentGrid = document.getElementById('students-grid');
+        students.forEach(student => {
+            const wrapper = student.link ? document.createElement('a') : document.createElement('div');
+            if (student.link) wrapper.href = student.link;
+            
+            wrapper.className = `p-5 rounded-2xl text-center transition-all duration-300 border ${
+                student.link 
+                ? 'bg-indigo-600/20 text-white border-indigo-500/40 hover:bg-indigo-600 hover:scale-105 cursor-pointer shadow-lg shadow-indigo-600/10' 
+                : 'bg-white/5 text-slate-400 border-white/5 hover:border-white/20'
+            }`;
+            
+            wrapper.innerHTML = `
+                <p class="font-bold text-sm tracking-wide">${student.name}</p>
+                ${student.link ? '<p class="text-[9px] opacity-70 mt-1 uppercase font-black">Personal Web ↗</p>' : ''}
+            `;
+            studentGrid.appendChild(wrapper);
+        });
+
+        // 生成課程進度
+        const coursesTimeline = document.getElementById('courses-timeline');
+        courseData.forEach(course => {
+            const div = document.createElement('div');
+            div.className = "glass-card p-6 rounded-3xl group flex flex-col md:flex-row items-start md:items-center gap-6 hover:border-indigo-500/40 transition-all";
+            div.innerHTML = `
+                <div class="min-w-[100px] text-center md:text-left">
+                    <div class="text-xs font-black text-indigo-400 mb-1 uppercase tracking-tighter">Event Date</div>
+                    <div class="text-xl font-black text-white">${course.date}</div>
+                </div>
+                <div class="flex-1 space-y-1">
+                    <div class="text-slate-500 text-xs font-bold uppercase tracking-widest">${course.teacher}</div>
+                    <h3 class="text-lg font-bold text-white group-hover:text-indigo-400 transition-colors">
+                        ${course.title}
+                    </h3>
+                </div>
+            `;
+            coursesTimeline.appendChild(div);
+        });
+    </script>
+</body>
+</html>
