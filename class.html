@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>學生專案作品集</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Google Fonts (Noto Sans TC) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- 引入 FontAwesome 圖示 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f3f4f6;
+        }
+        /* 卡片懸停動畫效果 */
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="text-gray-800 antialiased min-h-screen flex flex-col">
+
+    <!-- 頂部導航 / 標題區 -->
+    <header class="bg-indigo-600 text-white shadow-lg sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-graduation-cap text-3xl"></i>
+                <h1 class="text-2xl font-bold tracking-wide">學生專案作品集</h1>
+            </div>
+            
+            <!-- 搜尋列 -->
+            <div class="relative w-full md:w-72">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <i class="fa-solid fa-search text-indigo-300"></i>
+                </div>
+                <input type="text" id="searchInput" 
+                    class="block w-full pl-10 pr-3 py-2 border border-transparent rounded-lg leading-5 bg-indigo-500 text-white placeholder-indigo-200 focus:outline-none focus:bg-white focus:text-gray-900 focus:placeholder-gray-400 focus:ring-2 focus:ring-indigo-400 sm:text-sm transition-colors duration-200" 
+                    placeholder="搜尋學生姓名..." onkeyup="filterStudents()">
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要內容區 -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
+        <!-- 狀態顯示 -->
+        <div class="mb-6 flex justify-between items-end">
+            <h2 class="text-xl font-semibold text-gray-700">專案列表</h2>
+            <span id="studentCount" class="text-sm text-gray-500 bg-gray-200 px-3 py-1 rounded-full"></span>
+        </div>
+
+        <!-- 網格容器 -->
+        <div id="projectGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- 卡片將由 JavaScript 動態生成在此處 -->
+        </div>
+        
+        <!-- 找不到結果時的提示 -->
+        <div id="noResults" class="hidden flex flex-col items-center justify-center py-20 text-gray-500">
+            <i class="fa-regular fa-face-frown text-5xl mb-4 text-gray-400"></i>
+            <p class="text-lg">找不到符合名稱的學生作品</p>
+        </div>
+    </main>
+
+    <!-- 頁尾 -->
+    <footer class="bg-white border-t border-gray-200 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex items-center justify-center">
+            <p class="text-sm text-gray-500">
+                &copy; <span id="year"></span> 學生專案成果展示 | Powered by Web Technologies
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // 設定當前年份
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // 學生資料 (來自 CSV)
+        const students = [
+            { name: "周信君", link: "https://d11aas.github.io/web123/fa.html" },
+            { name: "洪慧玲", link: "https://kk96336933.github.io/oht-edd-scheduler/" },
+            { name: "李芷迎", link: "https://a0912976077.github.io/travel-planner/" },
+            { name: "王緯翔", link: "https://wweixiang485-a11y.github.io/AI-Scheduling-Skill/" },
+            { name: "宋昌庭", link: "https://aries0526.github.io/Aries/" },
+            { name: "曾冠鳴", link: "https://guan6406.github.io/ai-travel-planner1/" },
+            { name: "鄭卉庭", link: "https://ansett0824.github.io/rfm-kmeans-customer-analysis-skill/web/?v=2" },
+            { name: "朱桂棠", link: "https://fakeromg777.github.io/website/process-yield-cost-tool/" },
+            { name: "李依庭", link: "https://eating2003.github.io/fitness-1/" },
+            { name: "蔡文瑜", link: "https://wen030321.github.io/FRAM-Skill/fa.html" },
+            { name: "黃子芸", link: "https://huangtzuyun01.github.io/machine-doctor-skill/" },
+            { name: "戴維雄", link: "https://kuroba8560.github.io/GAME/GAME.html" },
+            { name: "胡家妍", link: "https://yoyohoshi.github.io/travel-calculator/" },
+            { name: "陳品瑄", link: "https://pin77719.github.io/HF-E-ESG-report-analysis-skill/" },
+            { name: "曾韻如", link: "https://ruuuuu0415-hub.github.io/academic-keyword-card-generator/" },
+            { name: "林宥任", link: "https://z0928667645-web.github.io/002github.io/" },
+            { name: "林杰毅", link: "https://jayyi0972186245.github.io/bee-climate-monitoring/" },
+            { name: "黃筠庭", link: "https://ivyun.github.io/korean_grammar_explainer/" },
+            { name: "林黃羿", link: "https://haungyi-lin.github.io/expense-split-calculator" },
+            { name: "黃心霓", link: "https://cnnnnnni.github.io/budget-calculator/" },
+            { name: "蘇靚瑀", link: "https://ching-yu430.github.io/cafe/" },
+            { name: "沈宛瑩", link: "https://wanying-collab.github.io/ai-hotpot-simulator/" },
+            { name: "黃建榮", link: "https://huangjianrong10-ui.github.io/FIFA-World-Cup2026-skill/" },
+            { name: "唐蒲家", link: "https://bibilabu123.github.io/HW2" },
+            { name: "于驊麟", link: "https://y-u-y-u-L.github.io/yy/anime.html" },
+            { name: "許詩沅", link: "https://suna0502-bit.github.io/Skill-Financial-Intelligence/" },
+            { name: "黃宜璇", link: "https://huangyixuan95-web.github.io/DailyProductionTracker/" },
+            { name: "李冠儀", link: "https://machine-troubleshooting-assistant-nxdvo7nhvjzlg3b2pzujv8.streamlit.app/" },
+            { name: "陸翊寧", link: "https://lyn-design-cmd.github.io/workflow-dashboard/" },
+            { name: "陳佳群", link: "https://j0918-pixel.github.io/airfare-budget-hunter-skill/" },
+            { name: "沈群鈞", link: "https://danis9469.github.io/" }
+        ];
+
+        // 產生好看的漸層色 (基於字串的簡易 Hash 來固定顏色)
+        function getGradientByName(name) {
+            const gradients = [
+                'bg-gradient-to-br from-purple-500 to-indigo-500',
+                'bg-gradient-to-br from-pink-500 to-rose-500',
+                'bg-gradient-to-br from-emerald-400 to-cyan-500',
+                'bg-gradient-to-br from-amber-400 to-orange-500',
+                'bg-gradient-to-br from-blue-400 to-indigo-600',
+                'bg-gradient-to-br from-fuchsia-500 to-purple-600',
+                'bg-gradient-to-br from-teal-400 to-emerald-600',
+                'bg-gradient-to-br from-violet-500 to-fuchsia-500',
+            ];
+            
+            let hash = 0;
+            for (let i = 0; i < name.length; i++) {
+                hash = name.charCodeAt(i) + ((hash << 5) - hash);
+            }
+            const index = Math.abs(hash) % gradients.length;
+            return gradients[index];
+        }
+
+        // 取得姓氏的第一個字作為頭像
+        function getInitials(name) {
+            return name.substring(0, 1);
+        }
+
+        // 渲染卡片
+        function renderCards(data) {
+            const grid = document.getElementById('projectGrid');
+            const noResults = document.getElementById('noResults');
+            const countLabel = document.getElementById('studentCount');
+            
+            grid.innerHTML = '';
+            countLabel.textContent = `共 ${data.length} 件作品`;
+
+            if (data.length === 0) {
+                grid.classList.add('hidden');
+                noResults.classList.remove('hidden');
+                return;
+            } else {
+                grid.classList.remove('hidden');
+                noResults.classList.add('hidden');
+            }
+
+            data.forEach((student, index) => {
+                const gradientClass = getGradientByName(student.name);
+                const initial = getInitials(student.name);
+                
+                // 簡化顯示的 URL (移除 https:// 和尾部的 /)
+                let displayUrl = student.link.replace(/^https?:\/\//, '').replace(/\/$/, '');
+                if(displayUrl.length > 25) {
+                    displayUrl = displayUrl.substring(0, 25) + '...';
+                }
+
+                // 判斷是否為 GitHub 專案以顯示對應圖示
+                const isGithub = student.link.includes('github.io');
+                const iconClass = isGithub ? 'fa-brands fa-github' : 'fa-solid fa-globe';
+                const platformText = isGithub ? 'GitHub Pages 專案' : '網頁專案';
+
+                const cardHTML = `
+                    <div class="project-card bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col h-full" data-name="${student.name}">
+                        <!-- 卡片上方裝飾橫幅 -->
+                        <div class="h-24 w-full ${gradientClass} relative">
+                            <!-- 圓形頭像 -->
+                            <div class="absolute -bottom-8 left-6 w-16 h-16 rounded-full bg-white p-1 shadow-md">
+                                <div class="w-full h-full rounded-full ${gradientClass} flex items-center justify-center text-white text-xl font-bold">
+                                    ${initial}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 卡片內容 -->
+                        <div class="pt-10 px-6 pb-6 flex-grow flex flex-col">
+                            <h3 class="text-xl font-bold text-gray-800 mb-1">${student.name}</h3>
+                            <p class="text-xs text-gray-500 mb-4 flex items-center gap-1">
+                                <i class="${iconClass}"></i> ${platformText}
+                            </p>
+                            
+                            <!-- 專案連結區塊 -->
+                            <div class="mt-auto pt-4 flex gap-2">
+                                <a href="${student.link}" target="_blank" rel="noopener noreferrer" 
+                                   class="flex-1 bg-indigo-50 hover:bg-indigo-600 hover:text-white text-indigo-700 transition-colors duration-200 rounded-lg py-2.5 px-4 text-center text-sm font-medium flex items-center justify-center gap-2 group border border-indigo-100 hover:border-indigo-600">
+                                    <span>前往專案</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                grid.insertAdjacentHTML('beforeend', cardHTML);
+            });
+        }
+
+        // 搜尋過濾功能
+        function filterStudents() {
+            const query = document.getElementById('searchInput').value.trim().toLowerCase();
+            const filtered = students.filter(student => 
+                student.name.toLowerCase().includes(query)
+            );
+            renderCards(filtered);
+        }
+
+        // 初始渲染所有卡片
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCards(students);
+        });
+    </script>
+</body>
+</html>
