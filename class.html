@@ -105,6 +105,9 @@
                 <a id="modal-link-btn" href="#" target="_blank" class="hidden px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg text-sm font-medium transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
                     前往網站
                 </a>
+                <a id="modal-video-btn" href="#" target="_blank" class="hidden px-6 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg text-sm font-medium transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                    觀看影片
+                </a>
                 <button onclick="closeModal()" class="px-6 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-sm font-medium transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                     關閉視窗
                 </button>
@@ -115,11 +118,11 @@
     <script>
         // 來自圖片的學生名單與專題連結
         const students = [
-            { name: "洪慧玲", url: "https://kk96336933.github.io/oht-edd-scheduler/", project: "OHT EDD 排程器" },
+            { name: "洪慧玲", url: "https://kk96336933.github.io/oht-scheduler-studio/spt.html", videoUrl: "https://youtu.be/wKz5jzL5V5A", project: "OHT EDD 排程器" },
             { name: "魏俊溢", url: "https://jeffyokowei-design.github.io/oht-scheduler/", project: "OHT 排程分析工具" }, 
             { name: "許詩沅", url: "https://suna0502-bit.github.io/Skill-Financial-Intelligence/", project: "金融智慧技能" }, 
             { name: "廖盈貴", url: "https://vivian957.github.io/ai-note-assistant/", project: "AI 筆記助手" }, 
-            { name: "黃子芸", url: "https://huangtzuyun01.github.io/machine-doctor-skill/", project: "機器醫師技能" },
+            { name: "黃子芸", url: "https://huangtzuyun01.github.io/machine-doctor-skill/", videoUrl: "https://youtu.be/86NIGWnZ0-8", project: "機器醫師技能" },
             { name: "沈宛瑩", url: "https://wanying-collab.github.io/ai-hotpot-simulator/", project: "AI 火鍋模擬器" }, 
             { name: "陳嘉億", url: "https://jia-i918.github.io/fortune-monopoly-0/", project: "財富大富翁遊戲" }, 
             { name: "黃筠庭", url: "https://ivyun.github.io/korean_grammar_explainer/", project: "韓文語法解釋器" }, 
@@ -129,32 +132,32 @@
             { name: "周芳毓", url: "https://fangyu3138.github.io/moneymoney-2/", project: "微型理財儀表板" }, 
             { name: "林映羽" }, 
             { name: "李冠儀", url: "https://machine-troubleshooting-assistant-nxdvo7nhvjzlg3b2pzujv8.streamlit.app/", project: "機器故障排除助手" }, 
-            { name: "沈群鈞", url: "https://danis9469.github.io/", project: "個人網頁" },
-            { name: "李依庭", url: "https://eating2003.github.io/fitness-1/", project: "健身計畫 1" },
+            { name: "沈群鈞", url: "https://danis9469.github.io/", videoUrl: "https://youtu.be/7ReKeEYYHzM", project: "個人網頁" },
+            { name: "李依庭", url: "https://eating2003.github.io/fitness-1/", videoUrl: "https://youtube.com/shorts/BM0WWnHeLX4?si=YGwtvR25CbPjHWVw", project: "健身計畫 1" },
             { name: "黃宜璇", url: "https://huangyixuan95-web.github.io/DailyProductionTracker/", project: "每日產量追蹤器" }, 
             { name: "陸翊寧", url: "https://lyn-design-cmd.github.io/workflow-dashboard/", project: "工作流儀表板" }, 
             { name: "蔡文瑜", url: "https://wen030321.github.io/FRAM-Skill/fa.html", project: "FRAM 技能" }, 
-            { name: "鄭卉庭", url: "https://ansett0824.github.io/rfm-kmeans-customer-analysis-skill/web/?v=2", project: "RFM K-means 客戶分析" },
-            { name: "林黃羿", url: "https://haungyi-lin.github.io/expense-split-calculator/", project: "分攤費用計算機" }, 
+            { name: "鄭卉庭", url: "https://ansett0824.github.io/rfm-kmeans-customer-analysis-skill/web/?v=2", videoUrl: "https://youtu.be/YtWtPt9x02Y", project: "RFM K-means 客戶分析" },
+            { name: "林黃羿", url: "https://haungyi-lin.github.io/expense-split-calculator/", videoUrl: "https://youtu.be/EVUEd5Ul3BQ", project: "分攤費用計算機" }, 
             { name: "于驊麟", url: "https://y-u-y-u-L.github.io/yy/anime.html", project: "動漫網頁" }, 
-            { name: "郭之駿", url: "https://cblzjp045-lab.github.io/oht-scheduler/", project: "OHT 排程器" }, 
-            { name: "李芷迎", url: "https://a0912976077.github.io/travel-planner/", project: "旅遊規劃器" },
-            { name: "黃建榮", url: "https://huangjianrong10-ui.github.io/FIFA-World-Cup2026-skill/", project: "2026 世界盃技能" }, 
-            { name: "陳品瑄", url: "https://pin77719.github.io/HF-E-ESG-report-analysis-skill/", project: "ESG 報告分析技能" }, 
+            { name: "郭之駿", url: "https://cblzjp045-lab.github.io/oht-scheduler/", videoUrl: "https://www.youtube.com/watch?v=ziDMVIFepcI", project: "OHT 排程器" }, 
+            { name: "李芷迎", url: "https://a0912976077.github.io/travel-planner/", videoUrl: "https://youtube.com/shorts/aMz6Q4bDjAI?si=PW1hsCTangaFYLa3", project: "旅遊規劃器" },
+            { name: "黃建榮", url: "https://huangjianrong10-ui.github.io/FIFA-World-Cup2026-skill/", videoUrl: "https://youtu.be/y3-V2VX4emo", project: "2026 世界盃技能" }, 
+            { name: "陳品瑄", url: "https://pin77719.github.io/HF-E-ESG-report-analysis-skill/", videoUrl: "https://youtube.com/shorts/Jg-OpyGkuis?si=9rLRprCzXdUVi-HC", project: "ESG 報告分析技能" }, 
             { name: "林采儀", url: "https://clinyi1005.github.io/ai-decision-helper-skill/", project: "AI 決策助手技能" }, 
-            { name: "胡家妍", url: "https://yoyohoshi.github.io/travel-calculator/", project: "旅遊計算機" }, 
+            { name: "胡家妍", url: "https://yoyohoshi.github.io/travel-calculator/", videoUrl: "https://youtube.com/shorts/3Kj4AQn2H_8?feature=share", project: "旅遊計算機" }, 
             { name: "林杰毅", url: "https://jayyi0972186245.github.io/bee-climate-monitoring/", project: "蜜蜂氣候監控" }, 
             { name: "蘇靚瑀", url: "https://ching-yu430.github.io/cafe/", project: "咖啡廳網站" },
             { name: "王緯翔", url: "https://wweixiang485-a11y.github.io/AI-Scheduling-Skill/", project: "AI 排程技能" },
-            { name: "曾冠鳴", url: "https://guan6406.github.io/ai-travel-planner1/", project: "AI 旅遊規劃器" },
+            { name: "曾冠鳴", url: "https://guan6406.github.io/ai-travel-planner1/", videoUrl: "https://youtu.be/UMjSMrPu7cs", project: "AI 旅遊規劃器" },
             { name: "戴維雄", url: "https://kuroba8560.github.io/GAME/GAME.html", project: "遊戲專案" }, 
             { name: "唐莆家", url: "https://bibilabu123.github.io/HW2", project: "第二次作業 (HW2)" }, 
             { name: "宋昌庭", url: "https://aries0526.github.io/Aries/", project: "Aries 個人專案" },
             { name: "陳佳群", url: "https://j0918-pixel.github.io/airfare-budget-hunter-skill/", project: "機票預算獵人技能" }, 
-            { name: "曾韻如", url: "https://ruuuuu0415-hub.github.io/academic-keyword-card-generator/", project: "學術關鍵字卡產生器" }, 
+            { name: "曾韻如", url: "https://ruuuuu0415-hub.github.io/academic-keyword-card-generator/", videoUrl: "https://youtu.be/GzC7DyM2Tzs", project: "學術關鍵字卡產生器" }, 
             { name: "蘇郁媜", url: "https://doubi901001.github.io/travel-choice-helper/", project: "旅遊選擇助手" }, 
-            { name: "朱桂棠", url: "https://fakeromg777.github.io/website/process-yield-cost-tool/", project: "製程良率成本工具" },
-            { name: "周信君", url: "https://d11aas.github.io/web123/fa.html", project: "股票投資決策模型" }
+            { name: "朱桂棠", url: "https://fakeromg777.github.io/website/process-yield-cost-tool/", videoUrl: "https://youtu.be/aZDJPyaFHiY", project: "製程良率成本工具" },
+            { name: "周倍君", url: "https://d11aas.github.io/web123/fa.html", videoUrl: "https://youtu.be/s-dNf08A2HY", project: "股票投資決策模型＋影片作品" }
         ];
 
         // 漸層色陣列總數
@@ -182,9 +185,11 @@
                     const firstName = student.name.charAt(0); // 取得姓氏作為大頭貼文字
                     const projectName = student.project || "互動網頁設計專題";
                     const projectUrl = student.url || "";
+                    const videoUrl = student.videoUrl || "";
+                    const actionText = projectUrl && videoUrl ? "網站＋影片" : (projectUrl ? "前往網站" : (videoUrl ? "觀看影片" : "查看介紹"));
 
                     const cardHTML = `
-                        <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden card-hover cursor-pointer flex flex-col h-full" onclick="openModal('${student.name}', '${gradientClass}', '${projectName}', '${projectUrl}')">
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden card-hover cursor-pointer flex flex-col h-full" onclick="openModal('${student.name}', '${gradientClass}', '${projectName}', '${projectUrl}', '${videoUrl}')">
                             <!-- 卡片上方縮圖區 -->
                             <div class="h-32 ${gradientClass} relative flex items-center justify-center overflow-hidden">
                                 <!-- 裝飾用圖形 -->
@@ -208,7 +213,7 @@
                                 </div>
                                 
                                 <div class="mt-4 pt-4 border-t border-gray-100 flex justify-between items-center text-indigo-600 text-sm font-medium">
-                                    <span>${projectUrl ? '前往網站' : '查看介紹'}</span>
+                                    <span>${actionText}</span>
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                                 </div>
                             </div>
@@ -246,8 +251,9 @@
         const modalAvatar = document.getElementById('modal-avatar');
         const modalHeaderBg = document.getElementById('modal-header-bg');
         const modalLinkBtn = document.getElementById('modal-link-btn');
+        const modalVideoBtn = document.getElementById('modal-video-btn');
 
-        function openModal(studentName, gradientClass, projectName, projectUrl) {
+        function openModal(studentName, gradientClass, projectName, projectUrl, videoUrl) {
             modalName.textContent = studentName;
             modalAvatar.textContent = studentName.charAt(0);
             modalProjectTitle.textContent = projectName;
@@ -259,6 +265,15 @@
             } else {
                 modalLinkBtn.href = "#";
                 modalLinkBtn.classList.add('hidden');
+            }
+
+            // 處理觀看影片按鈕
+            if (videoUrl) {
+                modalVideoBtn.href = videoUrl;
+                modalVideoBtn.classList.remove('hidden');
+            } else {
+                modalVideoBtn.href = "#";
+                modalVideoBtn.classList.add('hidden');
             }
 
             // 重置背景色並套用新的
