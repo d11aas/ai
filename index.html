@@ -52,7 +52,7 @@
                 <div class="hidden md:flex space-x-8 font-medium">
                     <a href="#lecturers" class="text-slate-600 hover:text-indigo-600 transition-all">師資團隊</a>
                     <a href="#showcase" class="text-slate-600 hover:text-indigo-600 transition-all">成果展示</a>
-                    <a href="#students" class="text-slate-600 hover:text-indigo-600 transition-all">成員名錄</a>
+
                     <a href="#courses" class="text-slate-600 hover:text-indigo-600 transition-all">課程安排</a>
                 </div>
             </div>
@@ -206,21 +206,7 @@
         </div>
     </section>
 
-    <!-- 學生名錄區塊 -->
-    <section id="students" class="py-24 bg-sky-50/70 relative border-y border-sky-100">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-20">
-                <h2 class="text-4xl font-black text-slate-900 mb-4">參與學生名錄</h2>
-                <div class="h-1.5 w-20 bg-indigo-600 mx-auto rounded-full"></div>
-                <p class="mt-6 text-slate-600 font-medium">本年度計畫共計 23 位管院菁英成員參與</p>
-            </div>
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4" id="students-grid">
-                <!-- JS 生成 -->
-            </div>
-        </div>
-    </section>
-
-    <!-- 課程安排區塊 -->
+<!-- 課程安排區塊 -->
     <section id="courses" class="py-24 max-w-5xl mx-auto px-6">
         <div class="flex flex-col items-center mb-16">
             <h2 class="text-4xl font-black text-slate-900 mb-2">課程進度安排</h2>
@@ -266,17 +252,7 @@
             { name: "徐彬偉" }
         ];
 
-        const students = [
-            { name: "周倍君", link: "https://d11aas.github.io/web123/" },
-            { name: "王緯翔", link: "https://wweixiang485-a11y.github.io/weixiangwang1010.github.io/" },
-            { name: "魏俊溢" }, { name: "黃子芸" }, { name: "沈宛瑩" }, { name: "陳嘉億" }, { name: "陳楷文" }, 
-            { name: "林宥任" }, { name: "沈群鈞" }, { name: "李依庭" }, { name: "黃宜璇" }, { name: "陸翊寧" }, 
-            { name: "蔡文瑜" }, { name: "鄭卉庭" }, { name: "林黃羿" }, { name: "于驊麟" }, { name: "郭之駿" }, 
-            { name: "李芷迎" }, { name: "黃建榮" }, { name: "陳品瑄" }, { name: "林采儀" }, { name: "胡家妍" }, 
-            { name: "林杰毅" }
-        ];
-
-        const courseData = [
+const courseData = [
             {
                         "date": "114/10/01",
                         "teacher": "林堂烈老師",
@@ -385,28 +361,6 @@
                 </div>
             `;
             seedGrid.appendChild(wrapper);
-        });
-
-        // 生成學生名錄
-        const studentGrid = document.getElementById('students-grid');
-        students.forEach(student => {
-            const wrapper = student.link ? document.createElement('a') : document.createElement('div');
-            if (student.link) {
-                wrapper.href = student.link;
-                wrapper.target = "_blank";
-            }
-            
-            wrapper.className = `p-5 rounded-2xl text-center transition-all duration-300 border ${
-                student.link 
-                ? 'bg-white text-indigo-700 border-indigo-200 hover:bg-indigo-600 hover:text-white hover:scale-105 cursor-pointer shadow-lg shadow-indigo-100' 
-                : 'bg-white text-slate-600 border-slate-200 hover:border-indigo-200 hover:bg-indigo-50'
-            }`;
-            
-            wrapper.innerHTML = `
-                <p class="font-bold text-sm tracking-wide">${student.name}</p>
-                ${student.link ? '<p class="text-[9px] opacity-70 mt-1 uppercase font-black">Personal Web ↗</p>' : ''}
-            `;
-            studentGrid.appendChild(wrapper);
         });
 
         // 生成課程進度
